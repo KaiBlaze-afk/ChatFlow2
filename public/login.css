@@ -1,0 +1,130 @@
+body{
+    background: url('./assets/bg.png');
+    background-size: cover;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    box-sizing: border-box;
+}
+.join-container{
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.336);
+    backdrop-filter: blur(5px);
+    padding: 40px;
+}
+.head{
+    padding-top: 18%;
+    font-size: 25px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+}
+.join-header{
+    font-size: 20px;
+    font-weight: 300;
+    padding: 15px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+input{
+    border-radius: 15px;
+    border: none;
+    font-size: 16px;
+    padding: 17px;
+    margin: 10px 0px;
+    width: 85%;
+    box-shadow: 1px 1px 15px rgba(255, 255, 255, 0.581);
+}
+input:focus{
+    outline: none;
+}
+.pub{
+    font-size: 12px;
+    float: right;
+    padding:5px 10px;
+    margin-bottom: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    color: rgb(103, 103, 103);
+    border: 0px;
+    background-color: transparent;
+}
+.btn{
+    font-size: 15px;
+    padding: 18px;
+    width: 95%;
+    border: none;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+    box-shadow: 1px 1px 15px rgba(255, 0, 0, 0.44);
+}
+.btn:hover{
+    background-color: rgb(243, 80, 80);
+}
+.rl{
+    margin-top: 60px;
+    display: block;
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(to right,rgba(255, 255, 255, 0.097), rgba(87, 87, 87, 0.166), rgba(74, 74, 74, 0.533));
+    float: left;
+    clear: both;
+}
+.ll{
+    margin-top: -60px;
+    display: block;
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(to right, rgba(74, 74, 74, 0.533), rgba(87, 87, 87, 0.166),rgba(255, 255, 255, 0.097));
+    float: right;
+    clear: both;
+}
+.flogo{
+    font-size: 11px;
+    display: block;
+    width: fit-content;
+    margin: 53px auto;
+}
+.fa{
+    text-decoration: none;
+    padding:10px 16px;
+}
+.box{
+    border: 2px solid white;
+    width: fit-content;
+    display: inline-block;
+    border-radius: 15px;
+    margin: 12px;
+    box-shadow: 1px 1px 10px white;
+    background-color: white;
+}
+.fa-twitter{
+    color: aqua;
+}
+.fa-instagram{
+    color: rgb(255, 103, 128);
+}
+.fa-github{
+    color: black;
+}
+
+@media screen and (min-width : 1000px){
+    body{
+        background: url('./assets/Original\ Wallpaper\ _\ 2000x1228.jpeg');
+        background-position: bottom;
+        background-size: cover;
+    }
+    .head{
+        padding-top: 50px;
+    }
+    .join-container{
+        max-width: 450px;
+        box-sizing: border-box;
+        float: right;
+    }
+    .cover{
+        height: 100vh;
+        width: 100vw;
+        position:absolute;
+        background-color: rgba(0, 0, 0, 0.113);
+    }
+}

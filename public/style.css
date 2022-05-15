@@ -1,0 +1,327 @@
+body {
+  height: 100%;
+  background-color: #e6f3ff;
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  background-color: #2800ba;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  transform: translate(-50%, -50%);
+  height: 85%;
+  border-radius: 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 10px solid #2800ba;
+}
+.options {
+  position: absolute;
+  height: 100%;
+  width: 70px;
+}
+.chatbox {
+  position: absolute;
+  height: 100%;
+  width: 65%;
+  background-color: #f5f8fc;
+  left: 80px;
+  border-radius: 40px;
+  box-sizing: border-box;
+  padding: 0px 10px;
+}
+.pref {
+  position: absolute;
+  height: 100%;
+  width: 27%;
+  background-color: white;
+  right: 0px;
+  border-radius: 40px;
+  border-left: 10px solid #2800ba;
+  box-sizing: border-box;
+}
+.logo {
+  height: 50px;
+  padding: 15px 5px;
+  margin: 5px;
+}
+.options ul {
+  margin-top: 40px;
+}
+.options ul .option {
+  list-style: none;
+  margin-left: -23px;
+}
+button {
+  background-color: transparent;
+  border: none;
+}
+.options ul .option img {
+  height: 26px;
+  margin: auto;
+  padding: 15px 2px;
+}
+#profile {
+  display: none;
+}
+.exit {
+  margin-top: 40px;
+}
+.profile {
+  height: 240px;
+}
+.activeUser {
+  height: 47%;
+  overflow-y: auto;
+}
+.dp {
+  height: 110px;
+  border-radius: 100%;
+  position: absolute;
+  top: 30px;
+  right: 50%;
+  transform: translate(50%);
+  border: 4px solid white;
+  box-shadow: 3px 3px 7px #888888;
+}
+#name {
+  position: absolute;
+  top: 165px;
+  right: 50%;
+  transform: translate(50%);
+  font-size: 24px;
+}
+#room {
+  position: absolute;
+  top: 192px;
+  right: 50%;
+  transform: translate(50%);
+  font-size: 14px;
+  color: grey;
+}
+.user {
+  background-color: rgb(212, 250, 255);
+  border: 1px solid white;
+  text-align: center;
+  padding: 12px;
+  margin: 3px 12px;
+  border-radius: 10px;
+  color: black;
+}
+.line {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  margin-top: 0px;
+  font-size: 14px;
+  padding: 5px;
+}
+.you {
+  background-color: rgb(166, 255, 161);
+  color: black;
+}
+.nextuser img {
+  height: 50px;
+  border-radius: 50%;
+}
+.msgbox {
+  padding: 15px;
+  overflow: auto;
+  height: 100%;
+  margin: 5px;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2800ba;
+}
+#intro {
+  font-size: 9px;
+  text-align: center;
+}
+.gap {
+  padding: 50px;
+  clear: both;
+  float: none;
+  background-color: transparent;
+  height: 70px;
+  padding: 10px;
+}
+.your-msg {
+  float: right;
+  background-color: rgb(212, 250, 255);
+  padding: 10px;
+  border-radius: 25px 25px 0px 25px;
+  clear: both;
+  box-shadow: 1px 1px 4px rgb(172, 172, 172);
+  max-width: 70%;
+  margin: 10px 0px;
+  color: black;
+}
+.other-msg {
+  color: black;
+  clear: both;
+  float: left;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px 25px 25px 0px;
+  max-width: 70%;
+  box-shadow: 1px 1px 4px rgb(172, 172, 172);
+  margin: 10px 0px;
+}
+.sender {
+  display: block;
+  width: fit-content;
+  margin: 0px;
+  font-size: 12px;
+}
+.img-msg img {
+  max-height: 350px;
+  max-width: 100%;
+}
+.mp3 audio {
+  max-width: 50vh;
+}
+.mp4 {
+  width: 85%;
+}
+.mp4 video {
+  width: 100%;
+}
+.oth {
+  width: 45%;
+  overflow: hidden;
+}
+.file {
+  display: inline-block;
+}
+.oth img {
+  border: 1px solid;
+  float: right;
+  clear: both;
+  height: 25px;
+  padding: 7px;
+  border-radius: 100%;
+  background-color: #2800ba;
+  z-index: 1;
+}
+.inputbox {
+  background-color: white;
+  position: absolute;
+  bottom: 20px;
+  height: 50px;
+  width: 90%;
+  box-shadow: 1px 1px 4px rgb(172, 172, 172);
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 20px;
+}
+.clip {
+  height: 25px;
+  padding: 11px 15px;
+}
+#input {
+  font-size: 18px;
+  position: absolute;
+  border: none;
+  margin-top: 15px;
+  width: 78%;
+}
+#input:focus {
+  outline: none;
+}
+#imgform {
+  display: none;
+}
+.send {
+  height: 32px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+@media screen and (max-width: 1000px) {
+  .container {
+    width: 95%;
+    height: 90%;
+    border: 5px solid #2800ba;
+  }
+  .pref {
+    display: none;
+    width: 80%;
+  }
+  .chatbox {
+    width: auto;
+    display: block;
+    left: 0px;
+    padding: 2px;
+  }
+  .options {
+    padding-top: 100px;
+  }
+  .logo {
+    padding: 15px 10px;
+    position: fixed;
+    z-index: 100;
+    background-color: #2800ba;
+    border-radius: 100vh;
+    top: 8px;
+    margin: 0px;
+    left: 8px;
+    height: 20px;
+    width: 28px;
+    box-sizing: border-box;
+  }
+  #profile {
+    display: block;
+  }
+  .options ul {
+    margin: 50px 0px;
+  }
+  .exit {
+    margin-top: 0px;
+  }
+  .clip {
+    padding: 12px 2px 12px 12px;
+  }
+  .inputbar {
+    width: 60%;
+  }
+  .send {
+    right: 11px;
+    top: 11px;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .img-msg img {
+    max-width: 100%;
+  }
+  .mp3 {
+    width: 80%;
+  }
+  .mp3 audio {
+    width: 100%;
+  }
+  .mp4 {
+    width: 85%;
+  }
+  .mp4 video {
+    width: 100%;
+  }
+  .oth {
+    width: 65%;
+  }
+}

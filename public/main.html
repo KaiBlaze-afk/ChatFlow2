@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/chat-4-512.png" type="image/x-icon" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.9.2/qs.min.js"
+      integrity="sha256-TDxXjkAUay70ae/QJBEpGKkpVslXaHHayklIVglFRT4="
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body onload="start()">
+    <div class="container">
+      <div class="options">
+        <img
+          class="logo"
+          id="logo"
+          onclick="shrink()"
+          src="./assets/chat-4-512.png"
+          alt=""
+        />
+        <ul class="opt">
+          <li class="option">
+            <button onclick="profile()" id="profile">
+              <img src="./assets/conference-128.png" alt="" />
+            </button>
+          </li>
+          <li class="option">
+            <button onclick="ring()">
+              <img src="./assets/bell-128.png" alt="" />
+            </button>
+          </li>
+          <li class="option">
+            <button onclick="darkmode()">
+              <img src="./assets/moon-4-128.png" alt="" />
+            </button>
+          </li>
+          <li class="option">
+            <button onclick="window.location.reload()">
+              <img src="./assets/loop-circular-128.png" alt="" />
+            </button>
+          </li>
+          <li class="option">
+            <button onclick="drop()">
+              <img src="./assets/delete.png" alt="" />
+            </button>
+          </li>
+          <li class="option exit">
+            <button onclick="window.location=('./index.html')">
+              <img src="./assets/close-window-128.png" alt="Exit" />
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="chatbox" id="chatbox">
+        <div class="msgbox" id="msgbox-cont">
+          <div id="intro">
+            Welcome to Chatflow <br />
+            All of your chats will be saved here by default, if you wish to
+            delete them there's an options for that too.
+          </div>
+          <div id="msgbox"></div>
+          <div class="gap"></div>
+        </div>
+        <div class="inputbox">
+          <form
+            action="/"
+            method="POST"
+            enctype="multipart/form-data"
+            id="imgform"
+          >
+            <input type="file" name="file" id="file" />
+          </form>
+
+          <form id="form" action="">
+            <label for="file" id="label"
+              ><img class="clip" src="./assets/clip.png" alt=""
+            /></label>
+            <input
+              type="text"
+              class="inputbar"
+              autofocus
+              autocomplete="off"
+              placeholder="Message..."
+              id="input"
+              ;
+            />
+            <button id="send">
+              <img class="send" src="./assets/send.png" alt="" />
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="pref" id="pref">
+        <div class="profile">
+          <img alt="" class="dp" id="dp" />
+          <div id="name"></div>
+          <div id="room"></div>
+        </div>
+        <div class="line">Active Users</div>
+        <div class="activeUser">
+          <div class="user you">You</div>
+          <div id="users"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
