@@ -1,7 +1,9 @@
 const Msg = require("./model/model");
 const mongoose = require("mongoose");
+require("dotenv").config();
+
 mongoose.connect(
-  "mongodb+srv://@cluster0.9rxsc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+  process.env.MONGODB_LINK,
   { useNewUrlParser: true },
   (error) => {
     !error
@@ -31,10 +33,10 @@ io.on("connection", (socket) => {
     if (user.room != "cafe") {
       Msg.find({ room: user.room })
         .sort({ time: -1 })
-        .limit(50)
+        .limit()
         .then((result) => {
           socket.emit("output-messages", result);
-        }); // This is the code to read the data from database...
+        });
     }
 
     const usrnames = usersOnline.filter((item) => {
@@ -86,6 +88,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("filesender", (sender) => {
+    suser = sender;
     app.post("/", (req, res) => {
       if (req.files) {
         var file = req.files.file;
@@ -110,10 +113,10 @@ io.on("connection", (socket) => {
 
         const msgdb = new Msg({
           type: format,
-          username: sender.name,
+          username: suser.name,
           filename: filename,
           time: new Date().getTime(),
-          room: sender.room,
+          room: suser.room,
         });
         msgdb.save();
 
@@ -123,11 +126,11 @@ io.on("connection", (socket) => {
           } else {
             res.sendFile(__dirname + "/public/index.html");
             const sq =
-              "/main.html?username=" + sender.name + "&room=" + sender.room;
+              "/main.html?username=" + suser.name + "&room=" + suser.room;
             res.redirect(sq);
 
-            socket.broadcast.to(sender.room).emit("fileInfo", {
-              nameofsender: sender.name,
+            socket.broadcast.to(suser.room).emit("fileInfo", {
+              nameofsender: suser.name,
               filename: filename,
               filetype: format,
             });

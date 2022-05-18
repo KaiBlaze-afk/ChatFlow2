@@ -8,6 +8,13 @@
 		<title>ChatFlow login
         </title>
         <link rel="stylesheet" href="./login.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script defer> 
+		function publicroom(){
+			if(document.getElementById('room').value==""){
+				document.getElementById('room').value='cafe';
+			}
+		}
+		</script>
 	</head>
 	<body><div class="cover"></div>
 		<div class="join-container" id="container" data-tilt>
@@ -19,9 +26,8 @@
 						<input type="text" name="username" id="username" placeholder="What to call you ?" autofocus required />
 					</div>
 					<div class="form-control">
-						<input type="text" name="room" id="room" placeholder="Which room ?" autocomplete="off">
-						</input>
-					</div><button onclick="document.getElementById('room').value='cafe'" class="pub">Join Pulic Room</button>
+						<input type="text" name="room" id="room" placeholder="Which room ?" autocomplete="off"/>
+					</div><button onclick="publicroom()" class="pub">Join Pulic Room</button>
 					<button type="submit" class="btn">Join</button>
 				</form>
 			</main>

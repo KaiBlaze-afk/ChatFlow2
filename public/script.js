@@ -61,6 +61,15 @@ form.addEventListener("submit", function (e) {
     msgs.className += "your-msg";
     msgs.textContent = input.value;
     document.getElementById("msgbox").append(msgs);
+    let clock = document.createElement("div");
+    clock.classList += "clock";
+    let ampm = new Date().getHours() >= 12 ? " pm" : " am";
+    let hr =
+      new Date().getHours() > 12
+        ? new Date().getHours() - 12
+        : new Date().getHours();
+    clock.textContent = hr + ":" + new Date().getMinutes() + ampm;
+    msgs.append(clock);
     input.value = "";
     scroll();
   }
@@ -72,11 +81,13 @@ function shrink() {
     if (c == 0) {
       c = 1;
       chatbox.style.left = "0px";
+      input.style.width = "70%";
       document.getElementById("logo").style.cssText =
         "top: 8px;height: 20px;width: 28px;box-sizing: border-box;";
     } else {
       c = 0;
       chatbox.style.left = "80px";
+      input.style.width = "60%";
       document.getElementById("logo").style.cssText =
         "top: 10px;height: 40px;width: 40px;box-sizing: unset;";
     }
@@ -88,7 +99,7 @@ function ring() {
 }
 
 socket.on("output-messages", (outmsg) => {
-  outputmsg = outmsg.reverse();
+  let outputmsg = outmsg.reverse();
   for (let x of outputmsg) {
     readmsgs(x);
     scroll();
@@ -100,6 +111,15 @@ socket.on("msg", (msg) => {
   msgs.className += "other-msg";
   msgs.textContent = msg.nameofsender + ": " + msg.message;
   document.getElementById("msgbox").append(msgs);
+  let clock = document.createElement("div");
+  clock.classList += "clock";
+  let ampm = new Date().getHours() >= 12 ? " pm" : " am";
+  let hr =
+    new Date().getHours() > 12
+      ? new Date().getHours() - 12
+      : new Date().getHours();
+  clock.textContent = hr + ":" + new Date().getMinutes() + ampm;
+  msgs.append(clock);
   scroll();
 });
 
@@ -125,7 +145,7 @@ file.onchange = () => {
   });
   const selectedFile = file.files[0];
   if (selectedFile) {
-    imgform.submit();
+    document.getElementById("imgform").submit();
     file.value = null;
   }
 };
@@ -144,7 +164,7 @@ function readmsgs(x) {
   } else if (x.type == "image") {
     if (x.username == username) {
       msgs.className += "img-msg your-msg";
-      imgaddr = "./uploads/" + x.filename;
+      let imgaddr = "/uploads/" + x.filename;
       msgs.innerHTML = "<img src='" + imgaddr + "'/>";
     } else {
       msgs.className += "img-msg other-msg";
@@ -153,14 +173,14 @@ function readmsgs(x) {
       mssg.textContent = x.username + ":";
       msgs.append(mssg);
       let msssg = document.createElement("img");
-      imgaddr = "./uploads/" + x.filename;
+      let imgaddr = "./uploads/" + x.filename;
       msssg.setAttribute("src", imgaddr);
       msgs.append(msssg);
     }
   } else if (x.type == "audio") {
     if (x.username == username) {
       msgs.classList += "mp3 your-msg";
-      audaddr = "./uploads/" + x.filename;
+      let audaddr = "./uploads/" + x.filename;
       msgs.innerHTML =
         "<audio controls><source src='" +
         audaddr +
@@ -185,7 +205,7 @@ function readmsgs(x) {
   } else if (x.type == "video") {
     if (x.username == username) {
       msgs.className += "mp4 your-msg";
-      vidaddr = "./uploads/" + x.filename;
+      let vidaddr = "./uploads/" + x.filename;
       msgs.innerHTML =
         "<video controls><source src='" +
         vidaddr +
@@ -210,7 +230,7 @@ function readmsgs(x) {
   } else {
     if (x.username == username) {
       msgs.className += "oth your-msg";
-      othaddr = "./uploads/" + x.filename;
+      let othaddr = "./uploads/" + x.filename;
       msgs.innerHTML =
         "<div class='file'>" +
         x.filename +
@@ -237,6 +257,15 @@ function readmsgs(x) {
       mssssg.append(logomsg);
     }
   }
+  let clock = document.createElement("div");
+  clock.classList += "clock";
+  let ampm = new Date(x.time).getHours() >= 12 ? " pm" : " am";
+  let hr =
+    new Date(x.time).getHours() > 12
+      ? new Date(x.time).getHours() - 12
+      : new Date(x.time).getHours();
+  clock.textContent = hr + ":" + new Date(x.time).getMinutes() + ampm;
+  msgs.append(clock);
 }
 
 function drop() {
@@ -264,16 +293,18 @@ function darkmode() {
   if (darkmod == 0) {
     document.body.style.background = "#000110";
     document.getElementById("chatbox").style.cssText =
-      "background:black;color:white;";
+      "background:url('https://cdn.glitch.global/20994fd5-5d66-449a-9258-c35be51ff08d/2224368.png?v=1652768857529');color:white; background-size:contain;";
     document.getElementById("pref").style.cssText =
-      "background:black;color:white;";
+      "background: linear-gradient( rgb(0, 0, 0),rgb(6, 1, 48));color:white;";
+    document.getElementById("intro").style.cssText = "background:transparent;";
     darkmod = 1;
   } else {
     document.body.style.background = "#e6f3ff";
     document.getElementById("chatbox").style.cssText =
-      "background:#f5f8fc;color:black;";
+      "background:url('https://cdn.glitch.global/20994fd5-5d66-449a-9258-c35be51ff08d/189832.jpg?v=1652773270689');color:black; background-size:100%;";
     document.getElementById("pref").style.cssText =
-      "background:white;color:black;";
+      "background: linear-gradient( white,rgb(210, 253, 255));color:black;";
+    document.getElementById("intro").style.cssText = "background:white;";
     darkmod = 0;
   }
   c = 1;
